@@ -1,0 +1,32 @@
+seed: 42
+device: cuda:0
+
+training:
+  total_timesteps: 5000_000
+  rollout_steps: 2048
+  epochs: 10
+  minibatch_size: 256
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  vf_coef: 0.5
+  ent_coef: 0.01
+  max_grad_norm: 0.5
+  learning_rate: 0.0003
+  train_time_limit_sec: 3600
+
+policy:
+  hidden_dims: [128, 128]
+  activation: tanh
+  log_std_init: -0.5
+
+evaluation:
+  num_episodes: 100
+  max_episode_steps: 500
+  render_episodes: 5
+  render_delay_sec: 0.02
+
+debug:
+  num_episodes: 2
+  total_timesteps: 5_00
+  max_episode_steps: 2
